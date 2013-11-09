@@ -1,0 +1,142 @@
+@import './mixins/vicanso'
+// 返回 向前按钮（带箭头形）
+.arrowBtn
+  inlineBlock()
+  padding 4px 12px
+  margin 0
+  color #fff
+  text-align center
+  height 23px
+  line-height 23px
+  font-size 13px
+  vertical-align top
+  text-shadow 0 1px 0 rgba(255, 255, 255, 0.5)
+  vicansoGradient #334054, #191f28
+  border 1px solid rgba(0, 0, 0, .3)
+  border-radius 3px
+  box-shadow inset 0 1px 1px rgba(255, 255, 255, .4), 0 1px 2px rgba(0, 0, 0, .05)
+  box-flex 0
+  position relative
+  &:active
+    vicansoGradient #191f28, #191f28
+  &:before
+    position absolute
+    top 2px
+    width 27px
+    height @width
+    border-radius 30px 100px 2px 40px / 2px 40px 30px 100px
+    content ''
+    box-shadow inset 1px 0 #191f28, inset 0 1px #191f28
+    mask-image gradient(linear, left top, right bottom, from(#000), color-stop(.33, #000), color-stop(.5, transparent), to(transparent))
+  &.btnPrev
+    margin-left 7px
+    border-left 0
+    border-bottom-left-radius 10px 15px
+    border-top-left-radius 10px 15px
+    &:before
+      left -5px
+      border-left 1.5px solid rgba(255, 255, 255, .25)
+      background-image -webkit-gradient(linear, left bottom, right top, from(#191f28), to(#334054))
+      background-image gradient(linear, left bottom, right top, from(#191f28), to(#334054))
+      transform rotate(-45deg) skew(-10deg, -10deg)
+  &.btnNext
+    margin-right 7px
+    border-right 0
+    border-bottom-right-radius 10px 15px
+    border-top-right-radius 10px 15px
+    &:before
+      right -5px
+      border-top 1.5px solid rgba(255, 255, 255, .25)
+      background-image -webkit-gradient(linear, left bottom, right top, from(#334054), to(#191f28))
+      background-image gradient(linear, left bottom, right top, from(#334054), to(#191f28))
+      transform rotate(135deg) skew(-10deg, -10deg)
+
+.arrowBtnBlack
+  vicansoGradient #2d2d2d, #111
+  &:before
+    box-shadow inset 1px 0 #111, inset 0 1px #111
+  &.btnPrev
+    &:before
+      background-image -webkit-gradient(linear, left bottom, right top, from(#111), to(#2d2d2d))
+      background-image gradient(linear, left bottom, right top, from(#111), to(#2d2d2d))
+  &.btnNext
+    &:before
+      background-image -webkit-gradient(linear, left bottom, right top, from(#2d2d2d), to(#111))
+      background-image gradient(linear, left bottom, right top, from(#2d2d2d), to(#111))
+
+.arrowRight, .arrowLeft, .arrowTop, .arrowBottom
+  height 20
+  &:before, &:after
+    top 5px
+    transform rotate(40deg)
+    position relative
+    display block
+    width 12px
+    height 2px
+    background-color #999
+    content ''
+  &:after
+    top 10px
+    transform rotate(-40deg)
+
+.arrowLeft
+  &:before, &:after
+    transform rotate(-40deg)
+  &:after
+    transform rotate(40deg)
+
+.arrowTop
+  &:before, &:after
+    top 10px
+    left -3px
+    transform rotate(-50deg)
+    width 11px
+  &:after
+    left 4px
+    top 8px
+    transform rotate(50deg)
+
+.arrowBottom
+  &:before, &:after
+    top 10px
+    left -3px
+    transform rotate(50deg)
+    width 11px
+  &:after
+    left 4px
+    top 8px
+    transform rotate(-50deg)
+
+.btn
+  text-align center
+  padding 5px 15px
+  font-size 12px
+  line-height 18px
+  color #0f0f0f
+  border 1px solid #c0c0c0
+  background-color #e0e0e0
+  vicansoGradient #f8f8f8, #e0e0e0
+  box-shadow inset 0 0 10px rgba(255,255,255,0.2) inset 0 1px 0 rgba(255,255,255,0.1)
+  border-radius 3px
+  inlineBlock()
+  &:hover, &:active
+    background-color #1eb0e9
+    vicansoGradient #1eb0e9, #0984c6
+    border 1px solid #0984c6
+    color white
+  &.disabled
+    color #d1d1d1
+    &:hover, &:active
+      vicansoGradient #f8f8f8, #e0e0e0
+      border 1px solid #c0c0c0
+
+
+textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"]
+  background-color #ffffff
+  border 1px solid #cccccc
+  box-shadow inset 0 1px 1px rgba(0, 0, 0, 0.075)
+  transition border linear 0.2s, box-shadow linear 0.2s
+  &:focs
+    border-color rgba(82, 168, 236, 0.8)
+    outline 0
+    box-shadow inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6)

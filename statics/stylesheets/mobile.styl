@@ -1,0 +1,54 @@
+html, body
+  height 100%
+  overflow hidden
+#header
+  position fixed
+  left 0
+  right 0
+  height 45px
+  z-index 9
+  .title
+    height 44px
+    line-height @height
+    text-align center
+    color white
+    .btnPrev
+      position absolute
+      top 4px
+      left 5px
+#contentContainer
+  height 100%
+  overflow scroll
+  -webkit-overflow-scrolling touch
+  ul
+    margin-top 45px
+  .novel
+    margin 0 5px
+    border-top 1px solid white
+    border-bottom 1px solid #e0e0e0
+    &:first-child
+      border-top none
+    img
+      height 60px
+      padding 5px 0
+      display block
+      float left
+    .info
+      margin-left 55px
+      $infoHeight = 70px
+      $nameHeight = 30px
+      height $infoHeight
+      line-height 20px
+      .name
+        height $nameHeight
+        line-height @height
+        font-size 16px
+        font-weight 900
+      .author
+        float right
+        color #0054a6
+        margin-right 5px
+      .desc
+        height $infoHeight - $nameHeight
+        text-overflow ellipsis
+        overflow hidden

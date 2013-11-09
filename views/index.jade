@@ -1,0 +1,32 @@
+extend ./layout
+block bodyContainer
+  #contentContainer
+    .monitorViewOptions
+      .projectsSelect.monitorViewOption
+        span 请选择应用：
+        .btn-group
+          a.btn.dropdown-toggle(data-toggle='dropdown', href='#') 
+            span.app #{viewData.projects[0]}
+            span.caret
+          ul.dropdown-menu
+            each project in viewData.projects
+              li:  a(href='#') #{project}
+      .typeSelect.monitorViewOption
+        span 请选择类型：
+        .btn-group
+          each type, i in viewData.typeList
+            if !i
+              button.btn.btn-primary #{type}
+            else
+              button.btn #{type}
+      .monitorViewOption
+        span 日期选择：
+        input.datePicker.start(type='text', value='#{viewData.today}', readonly)
+        span(style='padding:0 5px') -
+        input.datePicker.end(type='text', value='#{viewData.today}', readonly)
+      .monitorViewOption
+        a.btn.go(href='#') GO
+    #chartList
+
+  - fileImporter.importCss('/stylesheets/index.styl');
+  - fileImporter.importJs('/javascripts/index.coffee');
